@@ -1,0 +1,10 @@
+/* Category page */
+
+.link {
+    text-decoration: none;
+    color: black;
+}
+.link:hover {
+    text-decoration: underline;
+    color: rgb(63, 115, 144);
+}
