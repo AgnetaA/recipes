@@ -19,7 +19,7 @@ export default function SearchResults({ query }: searchResultsProps) {
             try {
                 const response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`);
                 const data = await response.json();
-                
+
                 const meals: Meals[] = data.meals;
 
                 setMeals(meals || []);
@@ -34,17 +34,26 @@ export default function SearchResults({ query }: searchResultsProps) {
     // const response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`); 
     //Eller: const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${query}`);
 
+
     return (
+
         <div>
             <h3 className={styles.result}>Results:</h3>
 
-            {meals.map((meals, i) => (     
+            {meals.length > 0 ? meals.map((meals, i) => (
+                <Link className={styles.link} href={`/${query}/${meals.idMeal}`} key={i}>
+                    <p>{meals.strMeal}</p>
+                </Link>
+            )) : <p>No results found, try another search</p>}
+
+
+            {/* {meals.map((meals, i) => (     
 
                 <Link className={styles.link} href={`/${query}/${meals.idMeal}`} key={i}>
                     <p>{meals.strMeal}</p>
                 </Link>
                 
-            ))}
+            ))} */}
 
         </div>
     )

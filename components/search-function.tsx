@@ -27,10 +27,10 @@ export default function SearchFunction() {
         <div className={styles.searchArea}>
             <h3>Search for recipes:</h3>
 
-            <form>
+            <div>
                 <input placeholder="Search..." type="text" id="search" name="search" aria-label="search" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} onKeyDown={handleKeydown}/>
                                                                                    
-            </form>
+            </div>
 
         </div>
     )
